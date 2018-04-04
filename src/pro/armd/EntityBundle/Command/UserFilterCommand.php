@@ -51,14 +51,14 @@ class UserFilterCommand extends ContainerAwareCommand
         /** @var ViewUserRepository $userAboutRepo */
         $userAboutRepo = $em->getRepository('UserFilterBundle:ViewUser');
 
-        /** @var ViewUser[] $userAbouts */
-        $userAbouts = $userAboutRepo->search(
+        /** @var ViewUser[] $users */
+        $users = $userAboutRepo->search(
             new EntityFilterAnd('country', 'Россия'),
             new EntityFilterOr('state', 'active', false)
         );
 
-        foreach($userAbouts as $userAbout) {
-            $output->writeln($userAbout->getEmail());
+        foreach($users as $user) {
+            $output->writeln($user->getEmail());
         }
     }
 }
