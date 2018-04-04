@@ -1,0 +1,4 @@
+services:
+#    user_filter.example:
+#        class: pro\armd\EntityBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
