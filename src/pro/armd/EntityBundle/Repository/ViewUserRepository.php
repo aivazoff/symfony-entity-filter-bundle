@@ -19,7 +19,7 @@ class ViewUserRepository extends EntityRepository
 {
     public function search(EntityFilter ...$filters)
     {
-        $qb = $this->createQueryBuilder($alias = 'd');
+        $qb = $this->createQueryBuilder('d');
 
         foreach($filters as $filter)
         {
