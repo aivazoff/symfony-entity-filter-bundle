@@ -1,6 +1,6 @@
 # Symfony entity filter bundle
 
-#### Step 1: add to your composer file
+#### Step 1: add repository in the your composer file
 ```json
 
 {
