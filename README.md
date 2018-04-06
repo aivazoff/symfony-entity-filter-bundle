@@ -19,7 +19,7 @@
 composer require armd-pro/symfony-entity-filter-bundle:dev-master
 ```
 
-#### Step 3: kernel register bundle
+#### Step 3: register bundle
 ```php
 class AppKernel extends Kernel
 {
