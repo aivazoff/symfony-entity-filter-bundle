@@ -1,6 +1,6 @@
 # Symfony entity filter bundle
 
-#### Step 1: add to your composer file:
+#### Step 1: add to your composer file
 ```json
 
 {
@@ -19,7 +19,7 @@
 composer require armd-pro/symfony-entity-filter-bundle:dev-master
 ```
 
-#### Step 3: kernel register bundles:
+#### Step 3: kernel register bundles
 ```php
 class AppKernel extends Kernel
 {
