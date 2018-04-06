@@ -1,3 +1,0 @@
-user_filter_homepage:
-    path:     /
-    defaults: { _controller: UserFilterBundle:Default:index }
