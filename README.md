@@ -75,7 +75,7 @@ class ExampleController extends Controller
         $userAboutRepo = $em->getRepository('UserFilterBundle:ViewUser');
 
         /**
-         * ViewUserRepository::search(EntityFilter ...$filters)
+         * Method ViewUserRepository::search(EntityFilter ...$filters)
          * 
          * IF country = 'Россия' OR state != 'active'
          */
