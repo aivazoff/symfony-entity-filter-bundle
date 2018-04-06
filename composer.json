@@ -3,10 +3,7 @@
 
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.2.*",
-        "doctrine/orm": "^2.5",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/doctrine-cache-bundle": "^1.2"
+        "symfony/symfony": "3.2.*"
     },
 
     "autoload": {
@@ -22,12 +19,5 @@
         "post-install-cmd": [
             "@symfony-scripts"
         ]
-    },
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:armd-pro/symfony-entity-filter-bundle.git"
-        }
-    ]
+    }
 }
