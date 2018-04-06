@@ -37,7 +37,7 @@ class AppKernel extends Kernel
 }
 ```
 
-#### Step 4: Create mysql view
+#### Step 4: Create MySQL view
 ```sql
 CREATE VIEW view_users AS (
 
