@@ -72,14 +72,14 @@ class ExampleController extends Controller
     public function userFilterAction()
     {
         $em = $this->get('doctrine')->getManager();
-        $userAboutRepo = $em->getRepository('UserFilterBundle:ViewUser');
+        $userRepo = $em->getRepository('UserFilterBundle:ViewUser');
 
         /**
          * Method ViewUserRepository::search(EntityFilter ...$filters)
          * 
          * IF country = 'Россия' OR state != 'active'
          */
-        $users = $userAboutRepo->search(
+        $users = $userRepo->search(
             new EntityFilterAnd('country', 'Россия'),
             new EntityFilterOr('state', 'active', false)
         );
