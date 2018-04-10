@@ -87,9 +87,7 @@ class ExampleController extends Controller
 
                 $expr->orX(
                     $expr->neq('u.country', ':country'),
-                    $expr->orX(
-                        $expr->eq('u.state', ':state')
-                    )
+                    $expr->eq('u.state', ':state')
                 ),
 
                 $expr->andX(
