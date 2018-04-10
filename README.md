@@ -83,7 +83,7 @@ class ExampleController extends Controller
          * (
          *    (
          *       ( (Страна != Россия) ИЛИ (Состояние пользователя = active) ) 
-         *       И (E-Mail = user@domain.com)
+         *       И (E-Mail = user1@gmail.com)
          *    ) 
          *    ИЛИ (Имя != "")
          * )
