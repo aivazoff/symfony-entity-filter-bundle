@@ -77,7 +77,8 @@ class ExampleController extends Controller
         $qb = $userRepo->createQueryBuilder('u');
         $expr = $qb->expr();
 
-        // ((((Страна != Россия) ИЛИ (Состояние пользователя = active)) И (E-Mail = user@domain.com)) ИЛИ (Имя != ""))
+        // ((((Страна != Россия) ИЛИ (Состояние пользователя = active)) 
+        // И (E-Mail = user@domain.com)) ИЛИ (Имя != ""))
 
         $qb->where(
 
