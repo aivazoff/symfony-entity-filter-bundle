@@ -106,7 +106,6 @@ class ExampleController extends Controller
             'name' => ''
         ]);
 
-        /** @var ViewUser[] $users */
         $users = $qb->getQuery()->getResult();
 
         return JsonResponse::create(array_map(function(ViewUser $user){
