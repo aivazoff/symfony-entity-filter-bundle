@@ -3,11 +3,6 @@
 namespace pro\armd\EntityBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use pro\armd\EntityBundle\Entity\UserAbout;
-use pro\armd\EntityBundle\Entity\ViewUser;
-use pro\armd\EntityBundle\EntityFilter;
-use pro\armd\EntityBundle\EntityFilterOr;
-use pro\armd\EntityBundle\EntityFilterAnd;
 
 /**
  * ViewUserRepository
@@ -17,32 +12,4 @@ use pro\armd\EntityBundle\EntityFilterAnd;
  */
 class ViewUserRepository extends EntityRepository
 {
-    public function search(EntityFilter ...$filters)
-    {
-        $qb = $this->createQueryBuilder('d');
-
-        foreach($filters as $filter)
-        {
-            if($filter instanceof EntityFilterAnd)
-            {
-                if($filter->isPositive()) {
-                    $qb->andWhere("d.{$filter->getFileldName()} = :{$filter->getFileldName()}");
-                } else {
-                    $qb->andWhere("d.{$filter->getFileldName()} != :{$filter->getFileldName()}");
-                }
-            }
-            else if($filter instanceof EntityFilterOr)
-            {
-                if($filter->isPositive()) {
-                    $qb->orWhere("d.{$filter->getFileldName()} = :{$filter->getFileldName()}");
-                } else {
-                    $qb->orWhere("d.{$filter->getFileldName()} != :{$filter->getFileldName()}");
-                }
-            }
-
-            $qb->setParameter($filter->getFileldName(), $filter->getValue());
-        }
-
-        return $qb->getQuery()->getResult();
-    }
 }

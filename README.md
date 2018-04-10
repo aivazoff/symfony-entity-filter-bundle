@@ -74,15 +74,43 @@ class ExampleController extends Controller
         $em = $this->get('doctrine')->getManager();
         $userRepo = $em->getRepository('UserFilterBundle:ViewUser');
 
-        /**
-         * Method ViewUserRepository::search(EntityFilter ...$filters)
-         * 
-         * IF country = 'Россия' OR state != 'active'
-         */
-        $users = $userRepo->search(
-            new EntityFilterAnd('country', 'Россия'),
-            new EntityFilterOr('state', 'active', false)
+
+        /** @var QueryBuilder $qb */
+        $qb = $userRepo->createQueryBuilder('u');
+        $expr = $qb->expr();
+
+        // ((((Страна != Россия) ИЛИ (Состояние пользователя = active)) И (E-Mail = user@domain.com)) ИЛИ (Имя != ""))
+
+        $qb->where(
+
+            $expr->andX(
+
+                $expr->orX(
+                    $expr->neq('u.country', ':country'),
+                    $expr->orX(
+                        $expr->eq('u.state', ':state')
+                    )
+                ),
+
+                $expr->andX(
+                    $expr->eq('u.email', ':email')
+                )
+
+            ),
+
+            $expr->orX(
+                $expr->neq('u.firstName', ':name')
+            )
         );
+
+        $qb->setParameters([
+            'country' => 'Россия',
+            'state' => 'active',
+            'email' => 'user1@gmail.com',
+            'name' => ''
+        ]);
+
+        $users = $qb->getQuery()->getResult();
 
         return JsonResponse::create(array_map(function(ViewUser $user){
             return $user->getEmail();
