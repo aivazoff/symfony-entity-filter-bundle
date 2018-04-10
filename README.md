@@ -59,8 +59,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use pro\armd\EntityBundle\Entity\ViewUser;
-use pro\armd\EntityBundle\EntityFilterAnd;
-use pro\armd\EntityBundle\EntityFilterOr;
 
 
 class ExampleController extends Controller
@@ -108,6 +106,7 @@ class ExampleController extends Controller
             'name' => ''
         ]);
 
+        /** @var ViewUser[] $users */
         $users = $qb->getQuery()->getResult();
 
         return JsonResponse::create(array_map(function(ViewUser $user){
