@@ -112,9 +112,9 @@ class ExampleController extends Controller
 
         $qb->setParameters([
             'country' => 'Россия',
-            'state' => 'active',
-            'email' => 'user1@gmail.com',
-            'name' => ''
+            'state'   => 'active',
+            'email'   => 'user1@gmail.com',
+            'name'    => ''
         ]);
 
         $users = $qb->getQuery()->getResult();
